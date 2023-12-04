@@ -3,18 +3,36 @@
     <ion-title>
       Poke App
     </ion-title>
+    <ion-avatar slot="start">
+      <img src="assets/icon/pokemon.jpg" alt="Pokeball">
+    </ion-avatar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list>
-    <ion-item *ngFor="let pokemon of pokemons">
-      <ion-avatar slot="start">
-        <img [src]="pokemon.imagenUrl" alt="{{pokemon.name}}">
-      </ion-avatar>
-      <ion-label>
-        <h2>{{pokemon.name}}</h2>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col sizeMd="4" offsetMd="4">
+        <ion-item class="custom-input" lines="none">
+          <ion-icon color="primary" slot="start" name="search-outline"></ion-icon>
+          <ion-input [(ngModel)]="pokemonToSearch" type="text" label="Buscar Pokémon..." label-placement="floating" (ionChange)="pokemonSearch()"></ion-input>
+        </ion-item>
+        <ion-list>
+          <ion-item *ngFor="let pokemon of pokemons" (click)="showPokemon(pokemon.id)" >
+            <ion-avatar slot="start">
+              <img [src]="pokemon.imagenUrl" alt="{{pokemon.name}}">
+            </ion-avatar>
+            <ion-label>
+              <h2>{{pokemon.name}}</h2>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+        <ion-buttons>
+          <ion-button  class="pagination-button" color="primary" shape="round" (click)="prevPage()" [disabled]="currentPage === 1"> Anterior</ion-button>
+          <ion-button  class="pagination-button" color="primary" shape="round" (click)="nextPage()">Siguiente</ion-button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
 </ion-content>

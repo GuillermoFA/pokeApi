@@ -1,0 +1,19 @@
+img {
+  width: 150px;
+  height: 150px;
+  border-radius: 25px;
+  background-color: aquamarine;
+}
+
+
+ion-card-title {
+  color: white;  /* Cambia el color del texto del nombre a blanco */
+  font-size: 32px;  /* Ajusta el tamaño del texto del nombre según sea necesario */
+  text-align: center;  /* Centra el texto del nombre */
+  margin-bottom: 10px;  /* Espaciado inferior del nombre */
+}
+
+.custom-note {
+  font-size: 1.0em; /* Ajusta el tamaño del texto según tus preferencias */
+}
+

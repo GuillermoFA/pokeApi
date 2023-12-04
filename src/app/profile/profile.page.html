@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Pokemon</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col sizeLg="6" offsetLg="3" sizeMd="8" offsetMd="2" sizeSm="10" offsetSm="1">
+        <ion-card *ngIf="pokemon">
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">{{ pokemon.name }}</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-row>
+              <ion-col size="12" class="ion-text-center">
+                <img [src]="pokemon.sprites.front_default" alt="Front Default" class="pokemon-image">
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="12" class="ion-text-center">
+                <img [src]="pokemon.sprites.back_default" alt="Back Default" class="pokemon-image">
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="12" class="ion-text-center">
+                <ion-list class="pokemon-attributes">
+                  <ion-item>
+                    <ion-label>Peso:</ion-label>
+                    <ion-note slot="end"class="custom-note" >{{ pokemon.weight }}</ion-note>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Altura:</ion-label>
+                    <ion-note slot="end" class="custom-note" >{{ pokemon.height }}</ion-note>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Experiencia base:</ion-label>
+                    <ion-note slot="end" class="custom-note">{{ pokemon.base_experience }}</ion-note>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Movimientos:</ion-label>
+                    <ion-list>
+                      <ion-item *ngFor="let ability of pokemon.abilities">
+                        <ion-note class="custom-note">
+                          &cir; {{ ability.ability.name }}
+                        </ion-note>
+                      </ion-item>
+                    </ion-list>
+                  </ion-item>
+                </ion-list>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
