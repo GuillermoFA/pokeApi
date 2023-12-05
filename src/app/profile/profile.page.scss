@@ -2,9 +2,11 @@ img {
   width: 150px;
   height: 150px;
   border-radius: 25px;
-  background-color: aquamarine;
 }
 
+.border-card {
+  border-radius: 35px;
+}
 
 ion-card-title {
   color: white;  /* Cambia el color del texto del nombre a blanco */
@@ -17,3 +19,23 @@ ion-card-title {
   font-size: 1.0em; /* Ajusta el tamaño del texto según tus preferencias */
 }
 
+img {
+  width: 300px;
+  height: 300px;
+}
+
+.shape-icon {
+  align-items: center;
+  border: none;
+  border-radius: 20px;
+  outline: 2px solid;
+  margin-bottom: 8px;
+}
+
+.pokemon-name {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.noPokemon {
+  padding-top: 20px;
+}
